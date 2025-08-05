@@ -19,7 +19,7 @@ public class Calculator {
 		// General screen config
 		final int SCREENWIDTH = 400;
 		final int SCREENHEIGTH = 300;
-		final int DISPLAYWIDTH = SCREENHEIGTH;
+		final int DISPLAYWIDTH = SCREENWIDTH;
 		final int DISPLAYHEIGTH = 50;
 		final int BUTTONSIZE = 50;
 		
@@ -49,5 +49,19 @@ public class Calculator {
         JButton zeroButton = new JButton("0");
         zeroButton.setBounds(BUTTONSIZE, BUTTONSIZE*3+DISPLAYHEIGTH, BUTTONSIZE, BUTTONSIZE);
         frame.add(zeroButton);
+        
+        // Operators declaration
+        JButton[] operationsButtons = new JButton[4];
+        operationsButtons[0] = new JButton("+");
+        operationsButtons[1] = new JButton("-");
+        operationsButtons[2] = new JButton("x");
+        operationsButtons[3] = new JButton("%");
+        JButton equalsButton = new JButton("=");
+        equalsButton.setBounds(BUTTONSIZE*4, DISPLAYHEIGTH, BUTTONSIZE*2, BUTTONSIZE*4);
+        frame.add(equalsButton);
+        for (int i=0;i<4;i++) {
+        	operationsButtons[i].setBounds(BUTTONSIZE*3, DISPLAYHEIGTH*(i+1), BUTTONSIZE, BUTTONSIZE);
+        	frame.add(operationsButtons[i]);
+        }
 	}
 }
